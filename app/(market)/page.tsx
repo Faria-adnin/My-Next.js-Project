@@ -1,7 +1,7 @@
 "use client";
-import Header from "./components/header";
-import Footer from "./components/footer";
-import "./components/global.css";
+import Header from "../components/header";
+import Footer from "../components/footer";
+import "../components/global.css";
 import {useState} from "react";
 
 export default function Home() {
