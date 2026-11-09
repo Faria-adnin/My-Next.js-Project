@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,7 +24,79 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+       <body className="min-h-screen flex flex-col bg-slate-50">
+
+        {/* Header */}
+        <header className="bg-slate-900 text-white shadow-lg">
+          <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+            {/* Logo */}
+            <div>
+              <h1 className="text-2xl font-bold tracking-wide">
+                Port<span className="text-cyan-400">Management</span>
+              </h1>
+              <p className="text-xs text-slate-400">
+                Port Operations Dashboard
+              </p>
+            </div>
+
+            {/* Navigation */}
+            <nav className="hidden md:flex items-center gap-8">
+              <Link href="/" className="hover:text-cyan-400 transition"> Home </Link>
+              <Link href="/containers" className="hover:text-cyan-400 transition"> Containers </Link>
+              <Link href="/reports" className="hover:text-cyan-400 transition"> Reports </Link>
+              <Link href="/about" className="hover:text-cyan-400 transition"> About </Link>
+            </nav>
+
+            {/* Profile */}
+            <button className="bg-cyan-500 hover:bg-cyan-600 px-5 py-2 rounded-lg font-medium transition"> Login </button>
+
+          </div>
+        </header>
+
+        {/* Main Content */}
+        <main className="flex-1 max-w-7xl w-full mx-auto px-6 py-8">
+          {children}
+        </main>
+
+        {/* Footer */}
+        <footer className="bg-slate-900 text-slate-300 mt-auto">
+          <div className="max-w-7xl mx-auto px-6 py-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div>
+                <h2 className="text-white text-lg font-bold mb-2"> PortManagement </h2>
+                <p className="text-sm text-slate-400">
+                  A centralized platform for managing port operations,
+                  container activities and logistics.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-white font-semibold mb-3"> Quick Links </h3>
+                <div className="flex flex-col gap-2 text-sm">
+                  <Link href="/" className="hover:text-cyan-400">Home</Link>
+                  <Link href="/containers" className="hover:text-cyan-400">Containers</Link>
+                  <Link href="/reports" className="hover:text-cyan-400">Reports</Link>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-white font-semibold mb-3"> System Information </h3>
+                <p className="text-sm text-slate-400"> Port Management System </p>
+                <p className="text-sm text-slate-400 mt-2"> Version 1.0.0 </p>
+              </div>
+
+            </div>
+
+            <div className="border-t border-slate-700 mt-8 pt-5 text-center">
+              <p className="text-sm text-slate-500">
+                © {new Date().getFullYear()} PortManagement. All rights reserved.
+              </p>
+            </div>
+
+          </div>
+        </footer>
+
+      </body>
     </html>
   );
 }
