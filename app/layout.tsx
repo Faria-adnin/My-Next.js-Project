@@ -73,9 +73,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               <div>
                 <h3 className="text-white font-semibold mb-3"> Quick Links </h3>
                 <div className="flex flex-col gap-2 text-sm">
-                  <Link href="/" className="hover:text-cyan-400">Home</Link>
-                  <Link href="/containers" className="hover:text-cyan-400">Containers</Link>
-                  <Link href="/reports" className="hover:text-cyan-400">Reports</Link>
+                  <Link href="/" className="hover:text-cyan-400"> Home </Link>
+                  <Link href="/containers" className="hover:text-cyan-400"> Containers </Link>
+                  <Link href="/reports" className="hover:text-cyan-400"> Reports </Link>
                 </div>
               </div>
 
