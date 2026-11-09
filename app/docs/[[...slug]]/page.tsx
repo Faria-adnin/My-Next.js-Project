@@ -1,3 +1,7 @@
+export function generateStaticParams(): { slug: string[] }[] {
+    return [{ slug: [] }];
+}
+
 export default async function Docs({
     params,
 }:{
